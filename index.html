@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+<!--  <meta http-equiv="X-UA-Compatible" content="ie=edge" />-->
+  <link rel="stylesheet" href="style.css" />  <!--rel=stylesheet，要导入的css样式表的 URL，后面跟css位置链接或路径-->
+  <title>Form表单注册</title><!--网页名称-->
+</head>
+<body>
+<div class="container"><!--创建div标签的类class，这样就可以在css使用样式来修改div样子 -->
+  <form id="form" class="form"><!-- 创建表单form标签，给与id和类class，这样就可以通过class在css使用样式来修改表单，就可以通过id交互数据-->
+    <h2>注册</h2><!--标题-->
+    <div class="form-control"><!--创建div标签的类class，这样就可以在css使用样式来修改div样子 -->
+      <label for="username">用户名</label><!-- 把label标签绑定id是username的input标签-->
+      <input type="text" id="username" placeholder="输入用户名" /> <!--type确定input是什么类型，id用于数据交互，placeholder 属性规定可描述输入字段预期值的简短的提示信息-->
+<!--      <small>Error message</small>-->
+    </div>
+    <div class="form-control"><!--创建div标签的类class，这样就可以在css使用样式来修改div样子 -->
+      <label for="email">邮箱地址</label><!-- 把label标签绑定id是email的input标签-->
+      <input type="text" id="email" placeholder="输入邮箱地址" /><!--type确定input是什么类型，id用于数据交互，placeholder 属性规定可描述输入字段预期值的简短的提示信息-->
+<!--      <small>Error message</small>-->
+    </div>
+    <div class="form-control"><!--创建div标签的类class，这样就可以在css使用样式来修改div样子 -->
+      <label for="password">密码</label><!-- 把label标签绑定id是password的input标签-->
+      <input type="password" id="password" placeholder="输入密码" /><!--type确定input是什么类型，id用于数据交互，placeholder 属性规定可描述输入字段预期值的简短的提示信息-->
+<!--      <small>Error message</small>-->
+    </div>
+    <div class="form-control"><!--创建div标签的类class，这样就可以在css使用样式来修改div样子 -->
+      <label for="password2">确认密码</label><!-- 把label标签绑定id是password2的input标签-->
+      <input
+              type="password"
+              id="password2"
+              placeholder="再次输入密码确认"
+      /><!--type确定input是什么类型，id用于数据交互，placeholder 属性规定可描述输入字段预期值的简短的提示信息-->
+<!--      <small>Error message</small>-->
+    </div>
+    <button type="submit">提交</button><!--按钮标签，type定为提交类型按钮-->
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
