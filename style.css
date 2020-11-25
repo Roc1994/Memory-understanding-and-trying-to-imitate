@@ -1,1 +1,95 @@
-# -
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+/**/
+:root {
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9fafb;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;                                                        /*align-items 属性定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式，center居中对齐*/
+  justify-content: center;                                                    /*justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式，使用 align-content 属性对齐交叉轴上的各项（垂直）；垂直居中对齐*/
+  min-height: 100vh;                                                        /*min-height 属性设置元素的最低高度，不包括填充，边框，或页边距*/
+  margin: 0;                                                                    /*外边距*/
+}
+
+.container {                                                                 /*设置类是container的div标签的css样式*/
+  background-color: #fff;
+  border-radius: 5px;                                                       /*border-radius边框属性是一个最多可指定边框四个角的复合属性，允许你为元素添加圆角边框*/
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);                                  /*box-shadow属性可以设置一个或多个下拉阴影的框，当鼠标移到下拉框会产生阴影选中*/
+  width: 400px;                                                                /*宽度*/
+}
+
+h2 {                                                                    /*设置h2签css样式*/
+  text-align: center;                                                   /*text-align属性指定元素文本的水平对齐方式，居中对齐*/
+  margin: 0 0 20px;                                                     /*外边距*/
+}
+
+.form {                                                           /*表单form标签css样式*/
+  padding: 30px 40px;                                               /*填充，当元素的 padding（填充）内边距被清除时，所释放的区域将会受到元素背景颜色的填充*/
+}
+
+.form-control {                                               /*设置类是form-control的div标签的css样式*/
+  margin-bottom: 10px;                                          /*margin-bottom属性设置元素的下边距*/
+  padding-bottom: 20px;                                         /*padding-bottom属性设置一个元素的底部填充（空格）*/
+  position: relative;                                         /*position 属性指定了元素的定位类型；相对定位元素的定位是相对其正常位置*/
+}
+
+.form-control label {                                         /*设置类是form-control的div标签中label标签的css样式*/
+  color: #777;
+  display: block;                                             /*display 属性规定元素应该生成的框的类型和设置一个元素应如何显示, block此元素将显示为块级元素，此元素前后会带有换行符*/
+  margin-bottom: 5px;                                         /*padding-bottom属性设置一个元素的底部填充（空格）*/
+}
+
+.form-control input {                                       /*设置类是form-control的div标签中input标签的css样式*/
+  border: 2px solid #f0f0f0;                                /*边框属性允许你指定一个元素边框的样式和颜色*/
+  border-radius: 4px;                                       /*border-radius边框属性是一个最多可指定边框四个角的复合属性，允许你为元素添加圆角边框，边框四角有多少的圆滑弧度*/
+  display: block;                                           /*display 属性规定元素应该生成的框的类型和设置一个元素应如何显示, block此元素将显示为块级元素，此元素前后会带有换行符*/
+  width: 100%;                                              /*宽度*/
+  padding: 10px;                                            /*填充，当元素的 padding（填充）内边距被清除时，所释放的区域将会受到元素背景颜色的填充*/
+  font-size: 14px;                                            /*字体大小*/
+}
+
+.form-control input:focus {                                     /*设置类是form-control的div标签中input标签的css样式，:focus选择器用于选择具有焦点的元素，提示:focus选择器接受键盘事件或其他用户输入的元素*/
+  outline: 0;                                                   /*当元素获得焦点的时候，焦点框为0*/
+  border-color: #777;                                           /**当元素获得焦点的时候，焦点-输入框的边框为灰色，显示为选中*/
+}
+
+.form-control.success input {                               /*设置类是form-control的div标签中input标签的css样式，当输入成功的样式*/
+  border-color: var(--success-color);                         /*输入成功就为绿色*/
+}
+
+form-control error input {                                    /*设置类是form-control的div标签中input标签的css样式，当输入失败或错误的样式*/
+  border-color: var(--error-color);                           /*输入失败或错误就为绿色*/
+}
+
+.form-control small {                                   /*设置类是form-control的div标签中small标签的css样式*/
+  color: var(--error-color);                          /*定义一个红色变量*/
+  position: absolute;                                   /*position 属性指定了元素的定位类型；绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>:*/
+  bottom: 0;                                            /*bottom 属性规定元素的底部边缘*/
+  left: 0;                                            /*把small标签的左边缘设置在其包含元素左边缘向右 0像素的位置*/
+  visibility: hidden;                                   /*visibility属性指定一个元素是否是可见的，hidden元素是不可见的*/
+}
+
+.form-control.error small {                               /*设置类是form-control的div标签中small标签的在错误的时候的css样式*/
+  visibility: visible;                                    /*visibility属性指定一个元素是否是可见的，visible默认值，元素是可见的。*/
+}
+
+.form button {                                                /*设置类是form表单标签中的button标签的css样式*/
+  cursor: pointer;                                            /*cursor属性定义了鼠标指针放在一个元素边界范围内时所用的光标形状，pointer光标呈现为指示链接的指针（一只手），设置鼠标在按钮上是一只手*/
+  background-color: #3498db;                                          /*按钮背景颜色*/
+  border: 2px solid #3498db;                                    /*边框属性允许你指定一个元素边框的样式和颜色，按钮边框大小实线颜色*/
+  border-radius: 4px;                                     /*border-radius边框属性是一个最多可指定边框四个角的复合属性，允许你为元素添加圆角边框，边框四角有多少的圆滑弧度*/
+  color: #fff;/**/
+  display: block;                                             /*display 属性规定元素应该生成的框的类型和设置一个元素应如何显示, block此元素将显示为块级元素，此元素前后会带有换行符*/
+  font-size: 16px;                                          /*边框按钮内字体大小*/
+  padding: 10px;                                        /*填充，当元素的 padding（填充）内边距被清除时，所释放的区域将会受到元素背景颜色的填充*/
+  margin-top: 20px;                                               /*margin-top属性设置元素的上部边距*/
+  width: 100%;                                                      /*宽度*/
+}
