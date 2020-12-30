@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #box{
+            width:800px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 50px auto;
+            position: relative;
+        }
+        #box .pic li{
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #box .tab{
+            width: 128px;
+            height: 22px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -64px;
+        }
+        #box .tab li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            margin: 5px;
+            border-radius: 50%;
+        }
+
+        #box .tab li.on{
+            background: rebeccapurple;
+        }
+
+        #box .btn li{
+            position: absolute;
+            top: 50%;
+            margin-top: -18px;
+            width: 30px;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bolder;
+            font-size: 45px;
+        }
+        #box .btn li.left{
+            left: 0;
+        }
+        #box .btn li.right{
+            right: 3px;
+        }
+
+        #box .btn li:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul class="pic">
+            <li><a href="./img/1.jpg"><img  width="800" height="500" src="./img/1.jpg" alt="test"></a></li>
+             <li><a href="./img/2.jpg"><img src="./img/2.jpg" alt="test" width="800" height="500" ></a></li>
+             <li><a href="./img/3.jpg"><img src="./img/3.jpg" alt="test" width="800" height="500" ></a></li>
+              <li><a href="./img/4.jpg"><img src="./img/4.jpg" alt="test" width="800" height="500" ></a></li>
+        </ul>
+
+        <ul class="tab">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <ul class="btn">
+            <li class="left">&lt;</li>
+            <li class="right">&gt;</li>
+        </ul>
+    </div>
+    <script src="jquery.js"></script>
+    <script>
+        var $picLi = $("#box .pic li");
+        var $tabLi = $("#box .tab li");
+        var $btnLi = $("#box .btn li");
+        var len = $picLi.length;
+        var first = 0;
+        var timer;
+
+        //初始化
+        $tabLi.eq(0).addClass("on");
+        $picLi.eq(0).show();
+
+        //tab区域
+        $tabLi.click(function () {
+            var x = $(this).index();
+            if(x != first){
+                change(x);
+            }
+        });
+
+
+        //btn区域  0  1
+        $btnLi.click(function () {
+            var x = first;
+            if($(this).index()){
+                x ++;
+                    if(x>=4)x = 0;
+            }else{
+                x --;
+                if(x < 0)x = len-1;
+            }
+             change(x);
+        });
+
+
+        //自动轮播
+        auto();
+        $("#box").hover(function () {
+           clearInterval(timer);
+        },auto);
+        function auto() {
+            timer = setInterval(function () {
+                var x = first;
+                x ++;
+                x %= len;
+                change(x);
+            },3000)
+        }
+
+        //变化函数
+        function change(i) {
+            $tabLi.eq(first).removeClass("on");
+            $picLi.eq(first).fadeOut(2000);
+            first = i;
+            $tabLi.eq(first).addClass("on");
+            $picLi.eq(first).fadeIn(2000);
+        }
+    </script>
+</body>
+</html>
